@@ -1,0 +1,8 @@
+
+Bsquid:S1659
+"&Declare "startMin" on a separate line.(¶Þðîþÿÿÿÿ
+Asquid:S1659
+"%Declare "endHour" on a separate line.(¶Þðîþÿÿÿÿ
+@squid:S1659
+"$Declare "endMin" on a separate line.(¶Þðîþÿÿÿÿ
+Ssquid:UselessImportCheck"*Remove this unused import 'java.sql.Time'.(Üå»‰þÿÿÿÿ

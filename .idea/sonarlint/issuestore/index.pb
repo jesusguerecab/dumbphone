@@ -41,3 +41,15 @@ A
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 p
 @app/src/main/java/edu/utep/cs/cs4330/dumbphone/MainActivity.java,b\7\b76f63c2e861a849f2fe13674aef8a2f8255874e
+O
+app/src/main/res/layout/app.xml,b\e\befe0a35b35ba19e9e3556653bd82106e4d1dc6e
+p
+@app/src/main/java/edu/utep/cs/cs4330/dumbphone/LockSchedule.java,3\e\3e05b38e6f1d5b2de5f764bf9227b41821101a8e
+w
+Gapp/src/main/java/edu/utep/cs/cs4330/dumbphone/NewScheduleActivity.java,f\b\fb46b81558d51835165f60ee9f149e514b550744
+^
+.app/src/main/res/layout/activity_apps_list.xml,4\0\4057b0af44406c73877795de4a350ef73e6da1f0
+g
+7app/src/main/java/edu/utep/cs/cs4330/dumbphone/App.java,6\0\603ab0dd2213d36cdfe922d5a12df99f9c0d3723
+t
+Dapp/src/main/java/edu/utep/cs/cs4330/dumbphone/AppsListActivity.java,7\7\77d662b95bcd46a42aafb489bde7ef252eb2a7bf
