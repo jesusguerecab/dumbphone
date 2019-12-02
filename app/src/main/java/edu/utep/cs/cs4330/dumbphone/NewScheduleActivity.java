@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,10 +27,12 @@ public class NewScheduleActivity extends AppCompatActivity {
     int currentMinute;
     String amPm;
     ArrayList<String> selectedItems;
+    Button appsListButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_schedule);
+
 
 
         selectedItems=new ArrayList<>();
@@ -96,6 +99,16 @@ public class NewScheduleActivity extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+
+       /* appsListButton=findViewById(R.id.app_list_button);
+        appsListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // Toast.makeText(getApplicationContext(),
+                       // "Your Message", Toast.LENGTH_LONG).show();
+            }
+        });
+*/
     }
 
 
