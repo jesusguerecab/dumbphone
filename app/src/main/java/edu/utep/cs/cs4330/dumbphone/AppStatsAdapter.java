@@ -1,5 +1,6 @@
 package edu.utep.cs.cs4330.dumbphone;
 
+import android.app.Activity;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
@@ -27,6 +28,8 @@ import io.netopen.hotbitmapgg.library.view.RingProgressBar;
 
 public class AppStatsAdapter extends RecyclerView.Adapter<AppStatsAdapter.ViewHolder>{
 
+
+
     private static final boolean localLOGV = false;
     private AppStatsAdapter.UsageTimeComparator mUsageTimeComparator = new AppStatsAdapter.UsageTimeComparator();
     private Context mContext;
@@ -37,14 +40,15 @@ public class AppStatsAdapter extends RecyclerView.Adapter<AppStatsAdapter.ViewHo
 
     public AppStatsAdapter(Context mContext) {
         this.mContext = mContext;
+
         mPm = mContext.getPackageManager();
         mUsageStatsManager = (UsageStatsManager) mContext.getSystemService(Context.USAGE_STATS_SERVICE);
 
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DAY_OF_YEAR, -5);
+        cal.add(Calendar.DAY_OF_YEAR, -1);
 
         final List<UsageStats> stats =
-                mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST,
+                mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY,
                         cal.getTimeInMillis(), System.currentTimeMillis());
         if (stats == null) {
             return;
@@ -95,6 +99,7 @@ public class AppStatsAdapter extends RecyclerView.Adapter<AppStatsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        int totalTime = getTotalTime();
         UsageStats pkgStats = mPackageStats.get(position);
         if (pkgStats != null) {
             String label = mAppLabelMap.get(pkgStats.getPackageName());
@@ -104,9 +109,18 @@ public class AppStatsAdapter extends RecyclerView.Adapter<AppStatsAdapter.ViewHo
                 progress = 0;
             }
             holder.progressBar.setProgress(progress);
+            holder.progressBar.setMax(totalTime);
+            int hours = progress / 60; //since both are ints, you get an int
+            int minutes = progress % 60;
+            System.out.printf("%d:%02d", hours, minutes);
+            if(hours > 0)
+                holder.appUsage.setText(hours + " hrs " + minutes +" mins");
+            else
+                holder.appUsage.setText(progress + " mins");
         }else {
             Log.w("BindViewHolder", "No usage stats info for package:" + position);
         }
+
 
     }
 
@@ -115,15 +129,25 @@ public class AppStatsAdapter extends RecyclerView.Adapter<AppStatsAdapter.ViewHo
         return mPackageStats.size();
     }
 
+    public int getTotalTime() {
+        int totalTime = 0;
+        for(UsageStats uS : mPackageStats){
+            totalTime += (int) uS.getTotalTimeInForeground() / 60000;
+        }
+        return totalTime;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         RingProgressBar progressBar;
         TextView appName;
+        TextView appUsage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             progressBar = itemView.findViewById(R.id.item_progress_bar);
             appName = itemView.findViewById(R.id.app_name_item);
+            appUsage = itemView.findViewById(R.id.app_usage);
         }
     }
 
@@ -132,12 +156,6 @@ public class AppStatsAdapter extends RecyclerView.Adapter<AppStatsAdapter.ViewHo
         public final int compare(UsageStats a, UsageStats b) {
             return (int)(b.getTotalTimeInForeground() - a.getTotalTimeInForeground());
         }
-    }
-
-    // View Holder used when displaying views
-    static class AppViewHolder {
-        TextView pkgName;
-        TextView usageTime;
     }
 
 

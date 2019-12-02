@@ -46,7 +46,7 @@
             android:layout_gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:max="100"
+            app:max="1440"
             app:ringColor="#949494"
             app:ringProgressColor="#FFFFFF"
             app:ringWidth="8dp"
