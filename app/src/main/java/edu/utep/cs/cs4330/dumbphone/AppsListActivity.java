@@ -20,9 +20,9 @@ import java.util.List;
 
 public class AppsListActivity extends AppCompatActivity {
 
+    private AppsManager appsManager;
     private PackageManager manager;
     private List<App> apps;
-
     private ListView apps_list;
 
     @Override
@@ -30,25 +30,11 @@ public class AppsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apps_list);
 
-        loadApps();
-        loadListView();
-    }
-
-    private void loadApps(){
         manager = getPackageManager();
-        apps = new ArrayList<>();
+        appsManager = AppsManager.getInstance(this);
+        apps = appsManager.getApps();
 
-        Intent i = new Intent(Intent.ACTION_MAIN, null);
-        i.addCategory(Intent.CATEGORY_LAUNCHER);
-
-        List<ResolveInfo> availableActivities = manager.queryIntentActivities(i, 0);
-        for(ResolveInfo ri:availableActivities){
-            App app = new App();
-            app.label = ri.activityInfo.packageName;
-            app.name = ri.loadLabel(manager);
-            app.icon = ri.loadIcon(manager);
-            apps.add(app);
-        }
+        loadListView();
     }
 
     private void loadListView(){

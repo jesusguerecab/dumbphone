@@ -1,0 +1,6 @@
+
+`squid:UselessImportCheck"5Remove this unused import 'com.bumptech.glide.Glide'.(Ñˆ…Ë8ìÃ‘šì-
+™squid:S1319"vThe type of the "appProgress" object should be an interface such as "List" rather than the implementation "ArrayList".(ÀÏ‡Òþÿÿÿÿ8¬ŽÆ™ì-
+–squid:S1319"sThe type of the "appNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÀÏ‡Òþÿÿÿÿ8¬ŽÆ™ì-
+Osquid:S1068",Remove this unused "mContext" private field.(»úÅ¾øÿÿÿÿ8¬ŽÆ™ì-
+5squid:S21763"Rename this class.(Â×žÖúÿÿÿÿ8¸Ú¸–ì-

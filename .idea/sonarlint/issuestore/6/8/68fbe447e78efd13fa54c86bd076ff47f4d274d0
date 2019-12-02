@@ -1,0 +1,4 @@
+
+~squid:S3008"`Rename this field "apps_manager_instance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è×„–8‘ë·šì-
+“squid:S13193"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ùŒ¯ÿÿÿÿÿ8ÆÃ‚›ì-
+_squid:UselessImportCheck"4Remove this unused import 'android.content.Context'.(©Ê‰è8ºÂçšì-

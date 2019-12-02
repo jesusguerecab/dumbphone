@@ -30,4 +30,41 @@
         tools:layout_editor_absoluteY="434dp"
         android:layout_gravity="center"/>
 
+    <Button
+        android:id="@+id/app_stats_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App Statistics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="434dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/lock"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Lock the Phone"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/enableBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Enable"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/lock"/>
+
+    <Button
+        android:id="@+id/disableBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Disable"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/enableBtn"/>
+
 </LinearLayout>

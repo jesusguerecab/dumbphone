@@ -53,3 +53,13 @@ g
 7app/src/main/java/edu/utep/cs/cs4330/dumbphone/App.java,6\0\603ab0dd2213d36cdfe922d5a12df99f9c0d3723
 t
 Dapp/src/main/java/edu/utep/cs/cs4330/dumbphone/AppsListActivity.java,7\7\77d662b95bcd46a42aafb489bde7ef252eb2a7bf
+n
+>app/src/main/java/edu/utep/cs/cs4330/dumbphone/MyReciever.java,d\3\d3dfe5dee6d53b37db240015cc611a4f62d614d8
+k
+;app/src/main/java/edu/utep/cs/cs4330/dumbphone/MyAdmin.java,e\f\efcc9fb5ee9469a735068160e7573c44a4ac30c5
+s
+Capp/src/main/java/edu/utep/cs/cs4330/dumbphone/AppStatsAdapter.java,b\c\bce768f9406c034963151e7df5527d8a136f5a03
+o
+?app/src/main/java/edu/utep/cs/cs4330/dumbphone/AppsManager.java,6\8\68fbe447e78efd13fa54c86bd076ff47f4d274d0
+q
+Aapp/src/main/java/edu/utep/cs/cs4330/dumbphone/AppStatistics.java,6\1\61710889f0318c675232ca9dceba15c52097bb81
