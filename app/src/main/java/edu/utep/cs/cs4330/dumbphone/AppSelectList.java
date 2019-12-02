@@ -6,29 +6,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class AppsListActivity extends AppCompatActivity {
+public class AppSelectList extends AppCompatActivity {
 
     private AppsManager appsManager;
     private PackageManager manager;
     private List<App> apps;
-    private ListView apps_list;
+    private ListView apps_list_select;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_apps_list);
+        setContentView(R.layout.activity_app_select_list);
 
         manager = getPackageManager();
         appsManager = AppsManager.getInstance(this);
@@ -38,34 +37,37 @@ public class AppsListActivity extends AppCompatActivity {
     }
 
     private void loadListView(){
-        apps_list = (ListView) findViewById(R.id.apps_list);
+        apps_list_select = findViewById(R.id.apps_list_select);
 
-        ArrayAdapter<App> adapter = new ArrayAdapter<App>(this, R.layout.app, apps) {
+        ArrayAdapter<App> adapter = new ArrayAdapter<App>(this, R.layout.checkable_app, apps) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 if(convertView == null){
-                    convertView = getLayoutInflater().inflate(R.layout.app, null);
+                    convertView = getLayoutInflater().inflate(R.layout.checkable_app, null);
                 }
 
-                ImageView appIcon = (ImageView) convertView.findViewById(R.id.icon);
+                ImageView appIcon = convertView.findViewById(R.id.iconC);
                 appIcon.setImageDrawable(apps.get(position).icon);
 
-                TextView appName = (TextView) convertView.findViewById(R.id.name);
+                TextView appName = convertView.findViewById(R.id.nameC);
                 appName.setText(apps.get(position).name);
+
+                CheckBox appSelected=convertView.findViewById(R.id.checkBoxApp);
+                appSelected.setChecked(false);
 
                 return convertView;
             }
         };
 
-        apps_list.setAdapter(adapter);
+        apps_list_select.setAdapter(adapter);
         addClickListener();
     }
 
     private void addClickListener(){
-        apps_list.setOnItemClickListener((parent, view, position, id) -> {
-            Intent i = manager.getLaunchIntentForPackage(apps.get(position).label.toString());
-            startActivity(i);
+        apps_list_select.setOnItemClickListener((parent, view, position, id) -> {
+
+            //here get if it is checked or not
         });
     }
 }

@@ -3,7 +3,9 @@ package edu.utep.cs.cs4330.dumbphone;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -100,15 +102,14 @@ public class NewScheduleActivity extends AppCompatActivity {
             }
         });
 
-       /* appsListButton=findViewById(R.id.app_list_button);
-        appsListButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               // Toast.makeText(getApplicationContext(),
-                       // "Your Message", Toast.LENGTH_LONG).show();
-            }
+        appsListButton=findViewById(R.id.selAppsbutton);
+        appsListButton.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), AppSelectList.class);
+            startActivity(intent);
         });
-*/
+
+
+
     }
 
 
