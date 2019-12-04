@@ -3,11 +3,14 @@ package edu.utep.cs.cs4330.dumbphone;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,10 +29,12 @@ public class NewScheduleActivity extends AppCompatActivity {
     int currentMinute;
     String amPm;
     ArrayList<String> selectedItems;
+    Button appsListButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_schedule);
+
 
 
         selectedItems=new ArrayList<>();
@@ -96,6 +101,15 @@ public class NewScheduleActivity extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+
+        appsListButton=findViewById(R.id.selAppsbutton);
+        appsListButton.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), AppSelectList.class);
+            startActivity(intent);
+        });
+
+
+
     }
 
 
